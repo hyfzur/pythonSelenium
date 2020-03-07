@@ -1,0 +1,5 @@
+1. Download Docker desktop tool
+2. Create a docker-compose.yaml file in your preferred directory. Copy the command in the "Version 3" from this website - https://github.com/SeleniumHQ/docker-selenium
+3. Open "Terminal"
+4. Execute this command to start the grid : docker-compose -f ./docker/docker-compose.yaml up -d
+5. Execute this command to start the grid : docker-compose -f ./docker/docker-compose.yaml down -d

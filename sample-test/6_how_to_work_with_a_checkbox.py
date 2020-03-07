@@ -3,11 +3,13 @@ import time
 from selenium import webdriver
 import pathlib
 
-base_path = pathlib.Path(__file__).cwd().parent
+from selenium.webdriver import DesiredCapabilities
 
-driver = webdriver.Chrome(executable_path=(
-        base_path / "drivers/chromedriver-v77").resolve())  # Optional argument, if not specified will search path.
-driver.maximize_window()
+hubUrl = "http://localhost:4444/wd/hub"
+capsChrome = DesiredCapabilities.CHROME
+
+driver = webdriver.Remote(command_executor=hubUrl,
+                          desired_capabilities=capsChrome)
 driver.get('http://the-internet.herokuapp.com/checkboxes')
 
 checkbox_1 = driver.find_element_by_css_selector("#checkboxes > input[type=checkbox]:nth-child(1)")
@@ -28,6 +30,6 @@ checkbox_1.click()
 time.sleep(2)
 print(checkbox_1.is_selected())
 
-driver.close()
+driver.quit()
 
 # Same approach can be used for Radio buttons

@@ -1,0 +1,5 @@
+# Command to start Selenium Grid
+java -jar selenium-server-standalone-3.141.59.jar -role hub
+
+# Command to start add a node to the Frid
+java -Dwebdriver.firefox.driver=geckodriver-0.26.0-mac -role node -hub http://169.254.177.143:4444/grid/register/clear -jar selenium-server-standalone-3.141.59.jar

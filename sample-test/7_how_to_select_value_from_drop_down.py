@@ -3,13 +3,14 @@ import time
 from selenium import webdriver
 import pathlib
 
+from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.support.select import Select
 
-base_path = pathlib.Path(__file__).cwd().parent
+hubUrl = "http://localhost:4444/wd/hub"
+capsChrome = DesiredCapabilities.CHROME
 
-driver = webdriver.Chrome(executable_path=(
-        base_path / "drivers/chromedriver-v77").resolve())  # Optional argument, if not specified will search path.
-driver.maximize_window()
+driver = webdriver.Remote(command_executor=hubUrl,
+                          desired_capabilities=capsChrome)
 driver.get('https://the-internet.herokuapp.com/dropdown')
 
 # Find the element
@@ -37,4 +38,4 @@ select.select_by_visible_text("Option 1")
 time.sleep(2)
 print("Selected the first value")
 
-driver.close()
+driver.quit()

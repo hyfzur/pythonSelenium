@@ -1,10 +1,15 @@
 from selenium import webdriver
 import pathlib
 
+from selenium.webdriver import DesiredCapabilities
+
 base_path = pathlib.Path(__file__).cwd().parent
 
-driver = webdriver.Firefox(executable_path=(
-        base_path / "drivers/geckodriver-v0_26_0").resolve())  # Optional argument, if not specified will search path.
-driver.get('http://automationpractice.com/index.php')
+hubUrl = "http://localhost:4444/wd/hub"
+capsFirefox = DesiredCapabilities.FIREFOX
 
-driver.close()
+driver = webdriver.Remote(command_executor=hubUrl,
+                          desired_capabilities=capsFirefox)
+driver.get('http://automationpractice.com/index.php')
+print(driver.title)
+driver.quit()

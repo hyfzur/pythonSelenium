@@ -3,10 +3,13 @@
 from selenium import webdriver
 import pathlib
 
-base_path = pathlib.Path(__file__).cwd().parent
+from selenium.webdriver import DesiredCapabilities
 
-driver = webdriver.Chrome(executable_path=(
-        base_path / "drivers/chromedriver-v77").resolve())  # Optional argument, if not specified will search path.
+hubUrl = "http://localhost:4444/wd/hub"
+capsChrome = DesiredCapabilities.CHROME
+
+driver = webdriver.Remote(command_executor=hubUrl,
+                          desired_capabilities=capsChrome)
 driver.get('http://automationpractice.com/index.php')
 
 # Find an elements using class name
@@ -44,4 +47,4 @@ print(len(popular_items_again), " element(s) found with this xpath")
 li_tags = driver.find_elements_by_tag_name("li")
 print(len(li_tags), " element(s) found with this xpath")
 
-driver.close()
+driver.quit()

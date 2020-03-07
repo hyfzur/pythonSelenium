@@ -3,10 +3,13 @@
 from selenium import webdriver
 import pathlib
 
-base_path = pathlib.Path(__file__).cwd().parent
+from selenium.webdriver import DesiredCapabilities
 
-driver = webdriver.Chrome(executable_path=(
-        base_path / "drivers/chromedriver-v77").resolve())  # Optional argument, if not specified will search path.
+hubUrl = "http://localhost:4444/wd/hub"
+capsChrome = DesiredCapabilities.CHROME
+
+driver = webdriver.Remote(command_executor=hubUrl,
+                          desired_capabilities=capsChrome)
 driver.get('http://automationpractice.com/index.php')
 
 # Find an element using class name
@@ -43,4 +46,4 @@ footer = driver.find_element_by_tag_name("footer")
 print("Footer present? ", shopping_cart.is_enabled())
 
 
-driver.close()
+driver.quit()

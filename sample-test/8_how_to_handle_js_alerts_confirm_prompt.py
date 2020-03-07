@@ -3,13 +3,14 @@ import time
 from selenium import webdriver
 import pathlib
 
+from selenium.webdriver import DesiredCapabilities
 from selenium.webdriver.support.select import Select
+hubUrl = "http://localhost:4444/wd/hub"
+capsChrome = DesiredCapabilities.CHROME
 
-base_path = pathlib.Path(__file__).cwd().parent
+driver = webdriver.Remote(command_executor=hubUrl,
+                          desired_capabilities=capsChrome)
 
-driver = webdriver.Chrome(executable_path=(
-        base_path / "drivers/chromedriver-v77").resolve())  # Optional argument, if not specified will search path.
-driver.maximize_window()
 driver.get('http://the-internet.herokuapp.com/javascript_alerts')
 
 # Element to access the js alert
@@ -49,4 +50,4 @@ prompt.send_keys("Entering text in the prompt")
 time.sleep(2)
 prompt.accept()
 
-driver.close()
+driver.quit()
