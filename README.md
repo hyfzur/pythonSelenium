@@ -29,6 +29,8 @@ I have used a ```docker-compose.yml``` for creating the grid and nodes. Open the
         * ```Removing selenium-hub     ... done```
         * ```Removing network docker_default```
 
+- To check if the grid is running, click [here](http://localhost:4444/grid/console)
+
 **P.S.**: The ```docker-compose.yml``` contents have been taken from [this](https://github.com/SeleniumHQ/docker-selenium#version-3) page.
 
 ## How to run the tests
