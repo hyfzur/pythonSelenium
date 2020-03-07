@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/hyfzur/pythonSelenium.svg?branch=master)](https://travis-ci.com/hyfzur/pythonSelenium)
+
 # About
 
 This project contains examples of basic Selenium WebDriver usage with Python bindings.
