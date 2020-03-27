@@ -1,9 +1,6 @@
 from selenium import webdriver
-import pathlib
 
 from selenium.webdriver import DesiredCapabilities
-
-base_path = pathlib.Path(__file__).cwd().parent
 
 hubUrl = "http://localhost:4444/wd/hub"
 capsFirefox = DesiredCapabilities.FIREFOX

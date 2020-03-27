@@ -1,8 +1,6 @@
 import time
 
 from selenium import webdriver
-import pathlib
-
 from selenium.webdriver import DesiredCapabilities
 
 hubUrl = "http://localhost:4444/wd/hub"

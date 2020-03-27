@@ -1,7 +1,6 @@
 """Find elements with locators in Selenium WebDriver and check if it is found or not"""
 
 from selenium import webdriver
-import pathlib
 
 from selenium.webdriver import DesiredCapabilities
 
@@ -44,6 +43,5 @@ print("Shopping cart present? ", shopping_cart.is_enabled())
 # Find an element using tag name
 footer = driver.find_element_by_tag_name("footer")
 print("Footer present? ", shopping_cart.is_enabled())
-
 
 driver.quit()

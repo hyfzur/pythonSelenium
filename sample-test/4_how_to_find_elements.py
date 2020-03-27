@@ -1,7 +1,6 @@
 """Find elements with locators in Selenium WebDriver and check if it is found or not"""
 
 from selenium import webdriver
-import pathlib
 
 from selenium.webdriver import DesiredCapabilities
 

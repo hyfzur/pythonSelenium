@@ -1,10 +1,8 @@
 import time
 
 from selenium import webdriver
-import pathlib
-
 from selenium.webdriver import DesiredCapabilities
-from selenium.webdriver.support.select import Select
+
 hubUrl = "http://localhost:4444/wd/hub"
 capsChrome = DesiredCapabilities.CHROME
 

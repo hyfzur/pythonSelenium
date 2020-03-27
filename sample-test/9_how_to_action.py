@@ -1,7 +1,6 @@
 import time
 
 from selenium import webdriver
-import pathlib
 
 from selenium.webdriver import ActionChains, DesiredCapabilities
 from selenium.webdriver.common.keys import Keys
@@ -19,7 +18,6 @@ action.move_to_element(testElement).context_click().perform()
 # Below commands are not working !!!
 action.send_keys(Keys.ARROW_RIGHT)
 action.send_keys(Keys.ARROW_DOWN)
-
 
 time.sleep(2)
 
